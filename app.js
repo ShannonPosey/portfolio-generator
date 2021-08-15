@@ -1,29 +1,24 @@
-const fs = require("fs");
-const generatePage = require("./src/page-template");
+const inquirer = require("inquirer");
+// const fs = require("fs");
+// const generatePage = require("./src/page-template");
 
-const profileDataArgs = process.argv.slice(2);
-console.log(profileDataArgs);
+inquirer
+  .prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "What is your name?"
+    }
+  ])
+  .then(answers => console.log(answers));
 
-// Destructuring Assignment example
-const [name, github] = profileDataArgs;
-console.log(name, github);
+// const pageHTML = generatePage(name,github);
 
-/* Template literals example
-const generatePage = (userName, githubName) => `Name: ${userName}, GitHub: ${githubName}`;*/
-
-/* Multi-line Template Literal Strings example
-const generatePage = (userName, githubName) => {
-    return `
-    Name: ${userName}
-    GitHub: ${githubName}
-    `;
-};*/
-
-fs.writeFile("./index.html", generatePage(name, github), err => {
+// fs.writeFile("./index.html", pageHTML, err => {
   // this will display an error message if an error occurs
-    if (err) throw new Error (err);
-    console.log("Portfolio complete! Check out index.html to see the output!");
-});
+//     if (err) throw (err);
+//     console.log("Portfolio complete! Check out index.html to see the output!");
+// });
 
 
 
@@ -40,5 +35,22 @@ fs.writeFile("./index.html", generatePage(name, github), err => {
 
 // printProfileData(profileDataArgs);
 
+// const profileDataArgs = process.argv.slice(2);
+// console.log(profileDataArgs);
+
+// Destructuring Assignment example
+// const [name, github] = profileDataArgs;
+// console.log(name, github);
+
+/* Template literals example
+const generatePage = (userName, githubName) => `Name: ${userName}, GitHub: ${githubName}`;*/
+
+/* Multi-line Template Literal Strings example
+const generatePage = (userName, githubName) => {
+    return `
+    Name: ${userName}
+    GitHub: ${githubName}
+    `;
+};*/
 
 
