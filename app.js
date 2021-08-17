@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-// const fs = require("fs");
-// const generatePage = require("./src/page-template");
+const fs = require("fs");
+const generatePage = require("./src/page-template");
 
 const promptUser = () => {
 return inquirer
@@ -143,19 +143,25 @@ const promptProject = portfolioData => {
    promptUser()
    .then(promptProject)
    .then(portfolioData => {
-     console.log(portfolioData);
-   });
+   
   //  .then(projectAnswers => console.log(projectAnswers));
 
-// const pageHTML = generatePage(name,github);
+const pageHTML = generatePage(portfolioData);
 
-// fs.writeFile("./index.html", pageHTML, err => {
+fs.writeFile("./index.html", pageHTML, err => {
   // this will display an error message if an error occurs
-//     if (err) throw (err);
-//     console.log("Portfolio complete! Check out index.html to see the output!");
-// });
+    if (err) throw new Error (err);
+    console.log("Page created! Check out index.html in this directory to see it!");
+});
+});
 
+/*
+=================================================================================
+                
+                      Examples to refer back to later
 
+===============================================================================
+*/                  
 
 // const printProfileData = profileDataArr => {
 //     // This
