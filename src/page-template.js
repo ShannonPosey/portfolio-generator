@@ -37,7 +37,7 @@ const generateProjects = projectsArr => {
   .filter(({feature}) => !feature)
   .map(({name, description, languages, link}) => {
     return `
-    <div class="col-12 md-6 md-2 bg-dark text-light p-3 flex-column">
+    <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
     <h3 class="portfolio-item-title text-light">${name}</h3>
     <h5 class="portfolio-languages">
     Built With:
